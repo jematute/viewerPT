@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.buttons {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    .panel-button {
+        font-size: 25px;
+        color: rgb(190,190,190);
+        margin-bottom: 20px;
+    }
+}
