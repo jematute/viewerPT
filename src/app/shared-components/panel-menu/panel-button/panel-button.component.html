@@ -1,0 +1,17 @@
+<div class="panel-button">
+    <div class="controls">
+        
+        <button class="main-button" (click)="onClick.emit(item)">
+            <i class="pi" [ngClass]="item.icon"></i>
+            {{item.label}}</button>
+        <button *ngIf="item.items && item.items.length > 0" (click)="showChildren = !showChildren">
+            <fa-icon *ngIf="!showChildren" [icon]="faCaretRight"></fa-icon>
+            <fa-icon *ngIf="showChildren" [icon]="faCaretDown"></fa-icon>
+        </button>
+    </div>
+    
+    
+    <div [@slideInTop] class="dropdown-area" *ngIf="showChildren">
+        <app-panel-button (onClick)="onClick.emit(button)" *ngFor="let button of item.items" [item]="button"></app-panel-button>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="panel">
+    <div class="panel-buttons">
+        <app-panel-button (onClick)="onClick.emit($event)" *ngFor="let button of model" [item]="button">
+
+        </app-panel-button>
+    </div>
+</div>

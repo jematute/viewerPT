@@ -1,5 +1,9 @@
-<div class="buttons">
-    <div class="panel-button" *ngFor="let button of buttons">
-        <fa-icon [icon]="button.icon"></fa-icon>        
+<div class="left-panel">
+    <div class="logo">
+        <img src="assets/images/synergis-logo.png" alt="">
     </div>
+    <app-panel-menu (onClick)="buttonClicked($event)" [model]="items"></app-panel-menu>
 </div>
+
+
+

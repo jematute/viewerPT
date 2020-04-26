@@ -12,4 +12,12 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  leftPanelOpened = true;
+
+  openLeftPane() {
+    this.leftPanelOpened = false;
+  }
+
+}

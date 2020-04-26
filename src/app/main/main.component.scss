@@ -4,3 +4,24 @@
     background-color: rgb(37,37,37);
     height: 100%;
 }
+
+.image-holder {
+    flex: 1;
+    box-sizing: border-box;
+    position: relative;
+
+    .image {
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        .image-file {
+            max-height: 100%;
+            width: 100%;
+            display: block;
+        }
+    }
+}

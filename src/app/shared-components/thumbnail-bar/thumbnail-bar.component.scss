@@ -1,0 +1,94 @@
+:host {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.thumbnail-bar {
+    flex: 1 1 auto;
+    display: flex;
+
+    .zoom-control {
+        flex: 0 0 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 12px;
+        color: rgb(190,190,190);
+        .zoom-slider {
+            padding: 20px;
+        }
+    }
+    .thumbnail-holder {
+        flex: 1 1 auto;
+        display: flex;
+        overflow: auto;
+        white-space: nowrap;
+        .image {
+            flex: 0 0 180px;
+            border: 5px solid rgb(190,190,190);
+
+            margin: 18px 8px;
+            position: relative;
+            overflow: hidden;
+
+            cursor: pointer;
+            .thumbnail {
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                max-height: 100%;
+                overflow: hidden;
+            }
+        }
+    }
+    // .thumbnail-holder {
+    //     flex: 1;
+    //     box-sizing: border-box;
+    //     position: relative;
+    //     overflow-x: auto;
+    //     overflow-y: hidden;
+    //     padding: 5px;
+    //     white-space: nowrap;
+    //     display: inline;
+    //     text-align: left;
+    //     .image {
+    //         height: 165px;
+    //         width: 180px;
+    //         margin: 4px;
+    //         overflow: hidden;
+    //         display: inline-block;
+    //         border: 3px solid rgb(190,190,190);
+    //         .thumbnail {
+    //             width: 100%;
+    //             height: 100%;
+    //             max-height: 100%;
+    //             display: block;
+    //             background-size: cover;
+    //             background-repeat: no-repeat;
+    //         }
+    //     }
+    // }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(90,90,90);
+    border-radius: 10px;
+  }

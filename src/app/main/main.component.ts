@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewerService } from '../viewer/viewer.service';
 
 @Component({
   templateUrl: './main.component.html',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(public viewer: ViewerService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

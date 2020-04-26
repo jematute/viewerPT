@@ -1,0 +1,28 @@
+.controls {
+    display: flex;
+}
+button {
+    background-color: transparent;
+    color: rgb(170,170,170);
+    border: none;
+    
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    i {
+        width: 20px;
+        margin-right: 10px;
+    }
+    cursor: pointer;
+}
+
+.main-button {
+    text-align: left;
+    flex: 1 1 auto;
+}
+
+.dropdown-area {
+    padding-left: 10px;
+    background-color: rgb(40,40,40);
+    overflow: hidden;
+}

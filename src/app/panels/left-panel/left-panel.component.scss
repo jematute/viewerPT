@@ -1,3 +1,34 @@
 :host {
     display: flex;
+    flex-direction: column;
+    position: relative;
+    
 }
+
+.left-panel {
+    flex: 1 1 auto;
+    display: flex;
+    color: rgb(190,190,190);
+    position: relative;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgb(24,24,24);
+
+}
+
+.logo {
+    text-align: center;
+    img {
+        height: 75px;
+    }
+}
+
+.title {
+    margin-top: 50px;
+    padding: 0 5px;
+    font-size: 10px;
+}
+
+app-panel-menu {
+    width: 200px;
+}
+

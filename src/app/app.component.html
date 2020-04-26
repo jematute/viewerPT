@@ -1,12 +1,28 @@
-<app-left-panel>
+<div class="main-wrapper">
+    <app-left-panel [@slideInSide] [@.disabled]="disableAnimate" *ngIf="leftPanelOpened">
 
-</app-left-panel>
-<div class="wrapper">
-    <app-top-panel></app-top-panel>
-    <router-outlet></router-outlet>
-    <app-bottom-panel></app-bottom-panel>
+    </app-left-panel>
+    <div class="wrapper">
+        <div class="toggle" (click)="toggleLeftPane()">
+            <fa-icon *ngIf="leftPanelOpened" [icon]="faCaretLeft"></fa-icon>
+            <fa-icon *ngIf="!leftPanelOpened" [icon]="faCaretRight"></fa-icon>
+        </div>
+        <div [@slideInTop] [@.disabled]="disableAnimate" *ngIf="topPanelOpened && viewer.openedDocuments.length > 1" [ngStyle]="{ height: topPanelHeight }">
+            <app-top-panel></app-top-panel>
+        </div>
+    
+        <div class="main-content">
+            <div *ngIf="viewer.openedDocuments.length > 1" class="top-toggle" (click)="toggleTopPane()">
+                <fa-icon *ngIf="topPanelOpened" [icon]="faCaretDown"></fa-icon>
+                <fa-icon *ngIf="!topPanelOpened" [icon]="faCaretUp"></fa-icon>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    
+        <app-bottom-panel></app-bottom-panel>
+    </div>
+    
+    <app-right-panel></app-right-panel>
+    
 </div>
-<app-right-panel></app-right-panel>
-
-
-
+<app-footer></app-footer>
