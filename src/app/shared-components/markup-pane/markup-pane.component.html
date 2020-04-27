@@ -1,0 +1,33 @@
+<div class="markup-panel">
+    <div class="controls">
+        <div class="button">
+            <span>
+                Hide /Show
+            </span>
+        </div>
+        <div class="button">
+            <span>
+                Filter Toggle
+            </span>
+           
+        </div>
+        <div class="button">
+            <span>
+                Search
+            </span>
+        </div>
+        <div class="button">
+            <span>
+                Create Report
+            </span>
+        </div>
+    </div>
+    <ag-grid-angular
+        style="width: 100%; height: 130px;"
+        class="ag-theme-alpine"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        >
+    </ag-grid-angular>
+</div>
+

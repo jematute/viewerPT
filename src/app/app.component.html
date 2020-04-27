@@ -17,8 +17,20 @@
                 <fa-icon *ngIf="!topPanelOpened" [icon]="faCaretUp"></fa-icon>
             </div>
             <router-outlet></router-outlet>
+            <div *ngIf="bottomPanelOpened && viewer.markupMode" class="bottom-toggle" (click)="toggleBottomPane()">
+                <fa-icon *ngIf="!bottomPanelOpened" [icon]="faCaretDown"></fa-icon>
+                <fa-icon *ngIf="bottomPanelOpened" [icon]="faCaretUp"></fa-icon>
+            </div>
         </div>
+        
+        <div [@slideInTop] [@.disabled]="disableAnimate" *ngIf="bottomPanelOpened && viewer.markupMode">
+            <app-bottom-panel>
+        
+            </app-bottom-panel>
+        </div>
+
     </div>
-    
+
 </div>
+
 <app-footer></app-footer>

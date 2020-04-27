@@ -3,5 +3,10 @@
         <img class="image-file" src="assets/images/{{viewer.currentDoc.image}}" alt="">
     </div>  
 </div>
-<app-floating-toolbar [menuItems]="navigationItems">
+<app-floating-toolbar [@zoomOutOnLeave] [@zoomInOnEnter] *ngIf="viewer.markupMode" [top]="'80px'" [orientation]="'vertical'" [menuItems]="selectionItems">
 </app-floating-toolbar> 
+
+<app-floating-toolbar [top]="'30px'" [right]="'500px'" [orientation]="'horizontal'" [menuItems]="navigationItems">
+</app-floating-toolbar> 
+
+<app-markup-toolbar [@zoomOutOnLeave] [@zoomInOnEnter] *ngIf="viewer.markupMode"></app-markup-toolbar>

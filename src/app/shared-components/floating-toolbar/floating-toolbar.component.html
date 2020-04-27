@@ -1,10 +1,14 @@
-<div class="toolbar">
-    <div *ngFor="let item of menuItems"> 
-        <div class="toolbar-button" *ngIf="item.label != 'separator'">
+<div class="toolbar" ngDraggable [inBounds]="true">
+    <div pTooltip="{{item.label}}" tooltipPosition="{{toolTipPosition}}" tooltipEvent="hover" *ngFor="let item of menuItems" class="" (click)="buttonClicked(item)"
+    [ngClass]="
+    { 'toolbar-button': item.label !== 'separator', 'toolbar-button-horizontal': item.label !== 'separator' && orientation === 'horizontal', 'toolbar-button-vertical': item.label !== 'separator' && orientation === 'vertical',
+    'toolbar-separator-horizontal': item.label === 'separator' && orientation === 'horizontal', 'toolbar-separator-vertical': item.label === 'separator' && orientation === 'vertical' }" >
+        <span  *ngIf="item.icon">
+            <fa-icon style="font-size: 20px" [icon]="item.icon"></fa-icon>
+            
+        </span>
+        <span *ngIf="item.label !== 'separator' && !item.icon">    
             {{item.label}}
-        </div>
-        <div style="display: inline-block;" *ngIf="item.label == 'separator'" class="separator">
-
-        </div>
+        </span>
     </div>
 </div>

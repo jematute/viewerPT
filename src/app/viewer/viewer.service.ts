@@ -6,20 +6,22 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class ViewerService {
 
   constructor() { 
-
+    this.openDocument(this.availableDocs[0]);
+    this.openedDocuments.push(...this.availableDocs.filter(d => d.id < 5));
   }
 
   onFileOpened = new EventEmitter<any>();
   onFileClosed = new EventEmitter<any>(); 
   currentDoc = null;
+  markupMode = false;
 
   availableDocs = [
-    { id: 1, label: "fans", image: 'fans.jpg', icon: "pi pi-fw pi-file"},
-    { id: 2, label: "assembly", image: 'assembly.jpg', icon: "pi pi-fw pi-file"},
-    { id: 3, label: "gemini", image: 'gemini.jpg', icon: "pi pi-fw pi-file"},
-    { id: 4, label: "house", image: 'house.jpg', icon: "pi pi-fw pi-file"},
-    { id: 5, label: "sony", image: 'sony.jpg', icon: "pi pi-fw pi-file"},
-    { id: 6, label: "sony2", image: 'sony2.jpg', icon: "pi pi-fw pi-file"},
+    { id: 1, label: "fans", image: 'fans.jpg', icon: "pi pi-fw pi-file", type: 1 },
+    { id: 2, label: "assembly", image: 'assembly.jpg', icon: "pi pi-fw pi-file", type: 1},
+    { id: 3, label: "gemini", image: 'gemini.jpg', icon: "pi pi-fw pi-file", type: 1},
+    { id: 4, label: "house", image: 'house.jpg', icon: "pi pi-fw pi-file", type: 1},
+    { id: 5, label: "sony", image: 'sony.jpg', icon: "pi pi-fw pi-file", type: 1},
+    { id: 6, label: "sony2", image: 'sony2.jpg', icon: "pi pi-fw pi-file", type: 1},
   ]
 
   openedDocuments = [
@@ -44,6 +46,18 @@ export class ViewerService {
       this.currentDoc = doc;
     }, 500);  
     this.onFileOpened.emit(doc);
+  }
+
+  replaceDocument(doc) {
+    this.openedDocuments.forEach((d, index) => {
+      if (doc.id == d.id) {
+        this.openedDocuments.splice(index, 1, this.currentDoc);
+        this.currentDoc = {}
+        setTimeout(() => {
+          this.currentDoc = d;
+        }, 1000);
+      }
+    });
   }
 
   closeDocument(item) {

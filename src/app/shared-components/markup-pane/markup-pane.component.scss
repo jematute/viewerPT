@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    overflow-y: hidden;
+    .controls {
+        overflow-y: hidden;
+        padding: 5px;
+        overflow: hidden;
+        .button {
+            border: 1px solid rgb(60,60,60);
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgb(40,40,40);
+            height: 30px;
+            color: rgb(190,190,190);;
+            width: 70px;
+            font-size: 10px;
+            display: inline-block;
+            overflow: hidden;
+            margin: 0 4px;
+            background-color: rgb(60,60,60);
+            border-radius: 6px;
+            &:hover {
+                background-color: rgba(0, 0, 255, 0.459);
+            }
+            &:active {
+                background-color: rgb(40,40,40);
+            }
+            position: relative;
+            span {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+        }
+    }
+}

@@ -37,15 +37,21 @@ export class AppComponent implements OnInit {
   faCaretDown = faCaretDown;
   faCaretUp = faCaretUp;
   leftPanelOpened = true;
-  topPanelOpened = false;
+  topPanelOpened = true;
+  bottomPanelOpened = true;
   disableAnimate = true;
   topPanelHeight = "135px";
+  markupMode = false;
   toggleLeftPane() {
     this.leftPanelOpened = !this.leftPanelOpened;
   }
 
   toggleTopPane() {
     this.topPanelOpened = !this.topPanelOpened;
+  }
+
+  toggleBottomPane() {
+    this.bottomPanelOpened = !this.bottomPanelOpened;
   }
 
   onResizeEnd(event) {

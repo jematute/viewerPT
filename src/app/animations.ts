@@ -1,4 +1,4 @@
-import { trigger, animate, transition, style, query, state } from '@angular/animations';
+import { trigger, animate, transition, style, query, state, stagger } from '@angular/animations';
 
 
 export const fadeAnimation = trigger('fadeAnimation', [
@@ -53,3 +53,19 @@ export const slideInTop = trigger('slideInTop', [
         animate(250, style({ height: '*' }))
     ])
 ]);
+
+export const listAnimation = trigger('listAnimation', [
+    transition('* => *', [ // each time the binding value changes
+      query(':leave', [
+        stagger(100, [
+          animate('0.5s', style({ opacity: 0 }))
+        ])
+      ]),
+      query(':enter', [
+        style({ opacity: 0 }),
+        stagger(100, [
+          animate('0.5s', style({ opacity: 1 }))
+        ])
+      ])
+    ])
+  ])

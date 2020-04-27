@@ -2,14 +2,15 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { ViewerService } from 'src/app/viewer/viewer.service';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { collapseAnimation, rubberBandAnimation, fadeInUpOnEnterAnimation, bounceOutDownOnLeaveAnimation, bounceInUpOnEnterAnimation, bounceInDownOnEnterAnimation, fadeOutDownOnLeaveAnimation, zoomOutDownOnLeaveAnimation, zoomInUpOnEnterAnimation } from 'angular-animations'
+import { listAnimation } from 'src/app/animations';
 
 @Component({
   selector: 'app-thumbnail-bar',
   templateUrl: './thumbnail-bar.component.html',
   styleUrls: ['./thumbnail-bar.component.scss'],
   animations: [
-    zoomOutDownOnLeaveAnimation(),
-    zoomInUpOnEnterAnimation()
+    zoomOutDownOnLeaveAnimation({ delay: 250 }),
+    zoomInUpOnEnterAnimation({ delay: 300}),
   ]
 })
 export class ThumbnailBarComponent implements OnInit {
@@ -41,5 +42,5 @@ export class ThumbnailBarComponent implements OnInit {
 
 
 
-  zoomValue = 1;
+  zoomValue = 1.8;
 }

@@ -1,0 +1,17 @@
+<div class="markup-toolbar" ngDraggable>
+    <div class="section" *ngFor="let section of menu">
+        <div pTooltip="{{item.label}}" tooltipPosition="top" [ngClass]="{ 'sub-section': item.type === 2, 'button-lg': item.type === 3, 'button-sm': item.type === 4 }"
+         *ngFor="let item of section.items">
+            <span *ngIf="(item.type === 3 || item.type ===4) && !item.icon">{{item.label}}</span>
+            <span *ngIf="item.icon">
+                <fa-icon style="font-size: 12px" [icon]="item.icon"></fa-icon>
+            </span>
+            <div pTooltip="{{child.label}}" tooltipPosition="top" *ngFor="let child of item.items" [ngClass]="{ 'button-lg': child.type === 3, 'button-sm': child.type === 4 }">
+                <span *ngIf="!child.icon">{{child.label}}</span>
+                <span *ngIf="child.icon">
+                    <fa-icon style="font-size: 12px" [icon]="child.icon"></fa-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -54,6 +54,7 @@ export class LeftPanelComponent implements OnInit {
   constructor(public viewer: ViewerService) { }
 
   items = [];
+  settingItems = [];
   faCaretLeft = faCaretLeft;
   opened = true;
   
@@ -63,7 +64,39 @@ export class LeftPanelComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    this.settingItems = [
+      {
+        label: 'Settings',
+        icon: 'pi pi-pw pi-cog',
+        items: [
+          {
+            label: 'Settings 1',
+            icon: 'pi pi-pw pi-file',
+            items: []
+          },
+          {
+            label: 'Settings 2',
+            icon: 'pi pi-pw pi-file',
+            items: []
+          },
+          {
+            label: 'Settings 3',
+            icon: 'pi pi-pw pi-file',
+            items: []
+          },
+          {
+            label: 'Settings 4',
+            icon: 'pi pi-pw pi-file',
+            items: []
+          },
+          {
+            label: 'Settings 5',
+            icon: 'pi pi-pw pi-file',
+            items: []
+          }
+        ]
+      },
+    ]
 
     this.items = [
       {
@@ -86,6 +119,7 @@ export class LeftPanelComponent implements OnInit {
       {
         label: 'Markup',
         icon: 'pi pi-fw pi-pencil',
+        type: 54,
         items: [
           {
             label: 'Contents',
@@ -156,11 +190,17 @@ export class LeftPanelComponent implements OnInit {
     ];
   }
 
+  
+
   @Input()
   paneOpened = true;
 
-  buttonClicked(doc) {
-    this.viewer.openDocument(doc);
+  buttonClicked(item) {
+    if (item.type == 1)
+      this.viewer.openDocument(item);
+    if (item.type === 54) {
+      this.viewer.markupMode = !this.viewer.markupMode;
+    }
   }
 
 }

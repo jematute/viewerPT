@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewerService } from '../viewer/viewer.service';
 import { bounceInUpOnEnterAnimation, bounceOutDownOnLeaveAnimation, bounceOutUpOnLeaveAnimation, fadeInUpAnimation, fadeOutUpAnimation, fadeInUpOnEnterAnimation, fadeOutUpOnLeaveAnimation, fadeInDownOnEnterAnimation, fadeOutDownOnLeaveAnimation, zoomInOnEnterAnimation, zoomOutOnLeaveAnimation } from 'angular-animations';
+import { faMousePointer, faFont, faComment, faCloud, faStickyNote, faShapes, faPencilRuler, faHighlighter, faDrawPolygon, faImage, faEraser, faWindowRestore, faWindowMaximize, faDesktop, faScroll, faSearchPlus, faColumns, faCompress, faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   templateUrl: './main.component.html',
@@ -23,30 +24,76 @@ export class MainComponent implements OnInit {
 
   navigationItems = [{
     label: "Split Window",
+    icon: faWindowRestore
   }, {
-    label: "Un-Split Window"
-  }, {
-    label: "separator"
-  }, {
-    label: "Full Page"
-  }, {
-    label: "Scroll Page"
+    label: "Un-Split Window",
+    icon: faWindowMaximize
   }, {
     label: "separator"
   }, {
-    label: "Select Tool"
+    label: "Full Page",
+    icon: faDesktop
   }, {
-    label: "Zoom Tool"
+    label: "Scroll Page",
+    icon: faScroll
   }, {
-    label: "Panel"
+    label: "separator",
   }, {
-    label: "Fit"
+    label: "Select Tool",
+    icon: faMousePointer
+  }, {
+    label: "Zoom Tool",
+    icon: faSearchPlus
+  }, {
+    label: "Panel",
+    icon: faColumns
+  }, {
+    label: "Fit",
+    icon: faCompress
   }, {
     label: "separator"
   }, {
-    label: "Prev's View"
+    label: "Prev's View",
+    icon: faBackward
   }, {
-    label: "Next View"
+    label: "Next View",
+    icon: faForward
   },]
+
+
+  selectionItems = [{
+    label: "Select Arrow",
+    icon: faMousePointer
+  }, {
+    label: "Text Box",
+    icon: faFont
+  }, {
+    label: "Text Callout",
+    icon: faComment
+  }, {
+    label: "Cloud Callout",
+    icon: faCloud
+  }, {
+    label: "Sticky Note",
+    icon: faStickyNote
+  }, {
+    label: "Rectangle",
+    icon: faShapes
+  }, {
+    label: "Line",
+    icon: faPencilRuler
+  }, {
+    label: "Highlight",
+    icon: faHighlighter
+  }, {
+    label: "Dimension",
+    icon: faDrawPolygon
+  }, {
+    label: "Image",
+    icon: faImage
+  }, {
+    label: "Eraser",
+    icon: faEraser
+  }]
 
 }
