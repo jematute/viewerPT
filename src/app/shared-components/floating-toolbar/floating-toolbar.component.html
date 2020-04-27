@@ -1,0 +1,10 @@
+<div class="toolbar">
+    <div *ngFor="let item of menuItems"> 
+        <div class="toolbar-button" *ngIf="item.label != 'separator'">
+            {{item.label}}
+        </div>
+        <div style="display: inline-block;" *ngIf="item.label == 'separator'" class="separator">
+
+        </div>
+    </div>
+</div>

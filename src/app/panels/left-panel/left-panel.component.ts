@@ -53,7 +53,7 @@ export class LeftPanelComponent implements OnInit {
 
   constructor(public viewer: ViewerService) { }
 
-  items: MenuItem[];
+  items = [];
   faCaretLeft = faCaretLeft;
   opened = true;
   
@@ -159,8 +159,8 @@ export class LeftPanelComponent implements OnInit {
   @Input()
   paneOpened = true;
 
-  buttonClicked(button) {
-    this.viewer.openDocument(button.label);
+  buttonClicked(doc) {
+    this.viewer.openDocument(doc);
   }
 
 }

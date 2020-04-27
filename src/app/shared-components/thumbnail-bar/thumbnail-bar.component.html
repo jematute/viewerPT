@@ -1,13 +1,13 @@
 <div class="thumbnail-bar">
     <div class="zoom-control">
-        <p>Thumbnail Zoom</p>
+        <span>Thumbnail Zoom</span>
         <div class="zoom-slider">
             <p-slider [step]=".1" [min]="1" [max]="4" [animate]="true" [(ngModel)]="zoomValue"></p-slider>
         </div>
-
     </div>
     <div class="thumbnail-holder">
-        <div class="image" *ngFor="let doc of viewer.openedDocuments">
+        <div [@zoomOutDownOnLeave] [@zoomInUpOnEnter] (click)="onImageClicked(doc)" class="image" *ngFor="let doc of openedDocuments">
+            <fa-icon  [icon]="faTimesCircle" class="close-button" (click)="onCloseButtonClicked(doc)"></fa-icon>
             <div [ngStyle]="{ 'background-image': 'url(' + baseUrl + doc.image + ')' }" [style.transform]="'scale('+zoomValue+')'" class="thumbnail">
                 
             </div>

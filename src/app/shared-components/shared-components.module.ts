@@ -6,12 +6,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ThumbnailBarComponent } from './thumbnail-bar/thumbnail-bar.component';
 import {SliderModule} from 'primeng/slider';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FloatingToolbarComponent } from './floating-toolbar/floating-toolbar.component';
 
 @NgModule({
-  declarations: [PanelMenuComponent, PanelButtonComponent, ThumbnailBarComponent],
+  declarations: [PanelMenuComponent, PanelButtonComponent, ThumbnailBarComponent, FloatingToolbarComponent],
   imports: [
-    CommonModule, FontAwesomeModule, SliderModule, FormsModule
+    CommonModule, FontAwesomeModule, SliderModule, FormsModule, BrowserAnimationsModule
   ],
-  exports: [PanelMenuComponent, ThumbnailBarComponent]
+  exports: [PanelMenuComponent, ThumbnailBarComponent, FloatingToolbarComponent]
 })
 export class SharedComponentsModule { }

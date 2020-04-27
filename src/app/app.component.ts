@@ -24,7 +24,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.disableAnimate = false;
-    }); 
+    });
+    this.viewer.onFileClosed.subscribe(() => {
+      if (this.viewer.openedDocuments.length === 0)
+        this.topPanelOpened = false;
+    });
   }
   title = 'viewerPT';
 
@@ -33,9 +37,9 @@ export class AppComponent implements OnInit {
   faCaretDown = faCaretDown;
   faCaretUp = faCaretUp;
   leftPanelOpened = true;
-  topPanelOpened = true;
+  topPanelOpened = false;
   disableAnimate = true;
-  topPanelHeight = "185px";
+  topPanelHeight = "135px";
   toggleLeftPane() {
     this.leftPanelOpened = !this.leftPanelOpened;
   }
