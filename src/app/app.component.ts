@@ -29,6 +29,9 @@ export class AppComponent implements OnInit {
       if (this.viewer.openedDocuments.length === 0)
         this.topPanelOpened = false;
     });
+    this.viewer.onEnterMarkupMode.subscribe(() => {
+      this.bottomPanelOpened = true;
+    });
   }
   title = 'viewerPT';
 
@@ -48,6 +51,10 @@ export class AppComponent implements OnInit {
 
   toggleTopPane() {
     this.topPanelOpened = !this.topPanelOpened;
+    if (!this.topPanelOpened) {
+      this.topPanelHeight = "135px";
+      this.viewer.thumbNailResize("117px");
+    }
   }
 
   toggleBottomPane() {
@@ -60,6 +67,7 @@ export class AppComponent implements OnInit {
 
   onResizing(event) {
       this.topPanelHeight = event.rectangle.bottom + "px";
+      this.viewer.thumbNailResize((event.rectangle.bottom - 18) + "px")
   }
 
   validate(event: ResizeEvent): boolean {

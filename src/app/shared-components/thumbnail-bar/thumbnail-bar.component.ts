@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input, OnDestroy, ApplicationRef } from '@angular/core';
 import { ViewerService } from 'src/app/viewer/viewer.service';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { collapseAnimation, rubberBandAnimation, fadeInUpOnEnterAnimation, bounceOutDownOnLeaveAnimation, bounceInUpOnEnterAnimation, bounceInDownOnEnterAnimation, fadeOutDownOnLeaveAnimation, zoomOutDownOnLeaveAnimation, zoomInUpOnEnterAnimation } from 'angular-animations'
 import { listAnimation } from 'src/app/animations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-thumbnail-bar',
@@ -13,19 +14,28 @@ import { listAnimation } from 'src/app/animations';
     zoomInUpOnEnterAnimation({ delay: 300}),
   ]
 })
-export class ThumbnailBarComponent implements OnInit {
+export class ThumbnailBarComponent implements OnInit, OnDestroy {
 
-  constructor(public viewer: ViewerService, private cd: ChangeDetectorRef) { }
+  constructor(public viewer: ViewerService) { }
+  ngOnDestroy(): void {
+    this.thumbnailResizeSubscription.unsubscribe();
+
+  }
 
   openedDocuments = [];
+  thumbnailResizeSubscription: Subscription;
 
   ngOnInit(): void {
     this.openedDocuments = this.viewer.openedDocuments;
     this.viewer.onFileOpened.subscribe(() => {
       this.openedDocuments = this.viewer.openedDocuments;
-      this.cd.detectChanges();
     });
     
+
+    this.thumbnailResizeSubscription = this.viewer.onThumbnailResize.subscribe(newSize => {
+      this.thumbnailSize = newSize;
+      console.log(newSize);
+    });
   }
 
   faTimesCircle = faTimesCircle;
@@ -40,7 +50,8 @@ export class ThumbnailBarComponent implements OnInit {
 
   baseUrl = 'assets/images/';
 
+  @Input()
+  thumbnailSize = "117px";
 
-
-  zoomValue = 1.8;
+  zoomValue = 1;
 }

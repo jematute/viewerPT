@@ -1,24 +1,27 @@
 <div class="markup-panel">
     <div class="controls">
-        <div class="button">
+        <div class="button" pTooltip="Hide/Show" tooltipPosition="top">
             <span>
-                Hide /Show
+                <fa-icon [icon]="faEye"></fa-icon>
+                /
+                <fa-icon [icon]="faEyeSlash"></fa-icon>
             </span>
         </div>
-        <div class="button">
+        <div class="button" pTooltip="Filter Toggle" toolTipPosition="top">
             <span>
-                Filter Toggle
+                <fa-icon [icon]="faFilter"></fa-icon>
+                
             </span>
            
         </div>
-        <div class="button">
+        <div class="button" pTooltip="Search" tooltipPosition="top">
             <span>
-                Search
+                <fa-icon [icon]="faSearch"></fa-icon>
             </span>
         </div>
-        <div class="button">
+        <div class="button" pTooltip="Create Report" tooltipPosition="top">
             <span>
-                Create Report
+                <fa-icon [icon]="faFileAlt"></fa-icon>
             </span>
         </div>
     </div>

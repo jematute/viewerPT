@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { faEyeSlash, faEye, faFilter, faSearch, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-markup-pane',
@@ -13,6 +14,12 @@ export class MarkupPaneComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  faEyeSlash = faEyeSlash;
+  faEye = faEye;
+  faFilter = faFilter;
+  faSearch = faSearch;
+  faFileAlt = faFileAlt;
+
   columnDefs = [
     {headerName: 'Category', field: 'category', width: 150 },
     {headerName: 'Page', field: 'page', width: 90 },
@@ -20,18 +27,15 @@ export class MarkupPaneComponent implements OnInit {
     {headerName: 'Status', field: 'status', width: 120 },
     {headerName: 'Comments', field: 'comments', width: 190 },
     {headerName: 'Visible', field: 'visible', width: 90, cellRenderer: params => {
-      console.log("params", params);
       return "<input type='checkbox' />"
     } },
     {headerName: 'Author', field: 'author', width: 140 },
     {headerName: 'Creation Date', field: 'creationdate', width: 140 },
     {headerName: 'Color', field: 'color', width: 100, cellRenderer: params => {
-      console.log("params", params);
       return `<div style="margin: 5px 0 0 10px; width: 12px; height: 12px; background: ${params.value}"><div>`
     } },
     {headerName: 'Layer', field: 'layer', width: 90 },
     {headerName: 'Lock', field: 'lock', width: 100, cellRenderer: params => {
-      console.log("params", params);
       return "<input type='checkbox' />"
     } },
 ];

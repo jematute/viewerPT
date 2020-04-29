@@ -49,3 +49,18 @@ html, body {
     display: inline;
 
   }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-container {
+  background-color: rgb(37,37,37);
+  position: relative;
+}
+.mat-select-panel {
+  background-color: rgb(37,37,37);
+  color: rgb(190,190,190);
+}
+
+.mat-select-value-text, .mat-option-text {
+  color: rgb(190,190,190);
+}

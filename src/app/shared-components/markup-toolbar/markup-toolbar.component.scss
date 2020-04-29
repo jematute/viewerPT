@@ -12,7 +12,17 @@
     box-shadow: 2px 2px 6px rgb(0,0,0);
     flex: 1 1 auto;
     display: flex;
-    padding: 0 5px;
+    padding: 0 0;
+    min-height: 98px;
+    flex-direction: column;
+    white-space: nowrap;
+    .wrapper {
+        display: flex;
+        flex: 1 1 auto;
+    }
+    .sections {
+        display: flex;
+    }
     .section {
         &:first-child {
             border: none;
@@ -40,5 +50,30 @@
             background-color: rgba(40,40,40,.8);
         }
         box-shadow: 2px 2px 4px rgb(40,40,40);
+    }
+
+    .toggle {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        background-color: transparent;
+        color: rgb(120,120,120);
+        border: none;
+    }
+
+    .handle {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        background-color: transparent;
+        color: rgb(120,120,120);
+        border: none;
+        cursor: move;
+        &:hover {
+            background-color: transparent;
+        }
+        &:active {
+            background-color: transparent;
+        }
     }
 }

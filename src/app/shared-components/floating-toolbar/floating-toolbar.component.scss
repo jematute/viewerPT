@@ -7,13 +7,18 @@
 }
 
 .toolbar {
-    
+    position: relative;
     background-color: rgba(40,40,40,.8);
     border-radius: 6px;
     font-size: 8px;
     box-shadow: 2px 2px 6px rgb(0,0,0);
+    overflow: hidden;
+    .menu-buttons {
+        display: flex;
+    }
 
     .toolbar-button {
+        position: relative;
         border: 1px solid rgb(50,50,50);
         border-radius: 6px;
         cursor: pointer;
@@ -29,10 +34,10 @@
     .toolbar-button-horizontal {
         height: 50px;
         width: 50px;
-
+        
         display: inline-block;
         overflow: hidden;
-        margin: 0 1px;
+        margin: 0px 1px 0 1px;
         position: relative;
         span {
             margin: 0;
@@ -44,6 +49,8 @@
             text-align: center;
         }
     }
+
+
 
     .toolbar-separator-horizontal {
         height: 50px;
@@ -81,4 +88,28 @@
         }
     }
 
+    .handle-horizontal {
+        display: inline-block;
+        width: 20px;
+        height: 50px;
+        font-size: 20px;
+        background-color: rgba(40,40,40,.8);
+        color: rgb(120,120,120);
+    }
+
+    .handle-vertical {
+        display: inline-block;
+        width: 50px;
+        height: 20px;
+        font-size: 20px;
+        background-color: rgba(40,40,40,.8);
+        color: rgb(120,120,120);
+    }
+
+}
+
+.toolbar-horizontal {
+    display: flex;
+    margin: 0;
+    padding: 0;
 }

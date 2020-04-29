@@ -42,8 +42,8 @@ export const slideInSide = trigger('slideInSide', [
 ]);
 
 export const slideInTop = trigger('slideInTop', [
-    state('*', style({ 'overflow-x': 'hidden' })),
-    state('void', style({ 'overflow-x': 'hidden' })),
+    state('*', style({ 'overflow-y': 'hidden' })),
+    state('void', style({ 'overflow-y': 'hidden' })),
     transition('* => void', [
         style({ height: '*' }),
         animate(250, style({ height: 0 }))

@@ -1,0 +1,30 @@
+<div class="print-panel">
+    <div class="title">
+        <span class="settings-title">
+            Print Settings
+        </span>
+        <span styler="margin-left: 40px" class="pages">
+            Total: 2 pages
+        </span>
+        <div class="control">
+            <button (click)="close()">Next</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="preview">
+            <div class="image-canvas">
+                <div [ngStyle]="{ 'background-image': 'url(' + docImage + ')' }" class="image">
+
+                </div>
+            </div>
+        </div>
+        <div class="settings">
+            <mat-select [(value)]="selected">
+                <mat-option *ngFor="let item of items" [value]="item.value">
+                    {{item.value}}
+                </mat-option>
+            </mat-select>
+
+        </div>
+    </div>
+</div>

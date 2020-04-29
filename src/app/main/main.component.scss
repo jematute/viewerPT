@@ -10,7 +10,7 @@
     flex: 1;
     box-sizing: border-box;
     position: relative;
-
+    overflow: hidden;
     .image {
         box-sizing: border-box;
         position: absolute;
@@ -18,7 +18,8 @@
         top: 0;
         right: 0;
         left: 0;
-
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
         .image-file {
             max-height: 100%;
             width: 100%;

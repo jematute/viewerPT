@@ -25,9 +25,11 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/web.config"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-dark/theme.css",
@@ -71,7 +73,6 @@
           "options": {
             "browserTarget": "viewerPT:build",
             "port": 4500
-            
           },
           "configurations": {
             "production": {
@@ -97,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -128,6 +130,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "viewerPT"
 }

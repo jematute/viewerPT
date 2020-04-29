@@ -7,8 +7,8 @@ import { faMousePointer, faFont, faComment, faCloud, faStickyNote, faShapes, faP
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
   animations: [
-    zoomInOnEnterAnimation(),
-    zoomOutOnLeaveAnimation(),
+    zoomInOnEnterAnimation({ duration: 100 }),
+    zoomOutOnLeaveAnimation({ duration: 300 }),
     fadeInDownOnEnterAnimation({ anchor: 'enter', duration: 100, delay: 0, translate: '40px' }),
     fadeOutUpOnLeaveAnimation({ anchor: 'leave', duration: 100, delay: 200, translate: '40px' })
   ]
@@ -19,8 +19,14 @@ export class MainComponent implements OnInit {
   constructor(public viewer: ViewerService) { }
 
   ngOnInit(): void {
-    
+    setTimeout(() => {
+     this.disableAnimation = false; 
+    }, 1000);
   }
+
+  disableAnimation = true;
+
+  baseUrl = 'assets/images/';
 
   navigationItems = [{
     label: "Split Window",

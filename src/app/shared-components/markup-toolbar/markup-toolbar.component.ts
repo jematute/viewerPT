@@ -1,11 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { faFillDrip, faRedo, faUndo, faArrowsAlt, faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
+import { faFillDrip, faRedo, faUndo, faArrowsAlt, faArrowsAltV, faCaretRight, faCaretLeft, faGripVertical } from '@fortawesome/free-solid-svg-icons';
+import { slideInSide } from 'src/app/animations';
 
 @Component({
   selector: 'app-markup-toolbar',
   templateUrl: './markup-toolbar.component.html',
   styleUrls: ['./markup-toolbar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  animations: [
+    slideInSide
+  ]
 })
 export class MarkupToolbarComponent implements OnInit {
 
@@ -13,6 +16,11 @@ export class MarkupToolbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  faCaretRight = faCaretRight;
+  faCaretLeft = faCaretLeft;
+  faGripVertical = faGripVertical;
+  collapsed = false;
 
   menu = [
     {

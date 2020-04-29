@@ -9,7 +9,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViewerModule } from './viewer/viewer.module';
 import { ResizableModule } from 'angular-resizable-element';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +22,7 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
     BrowserAnimationsModule,
     ViewerModule,
     ResizableModule,
-    SharedComponentsModule
+    SharedComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,55 @@
-<div class="toolbar" ngDraggable [inBounds]="true">
-    <div pTooltip="{{item.label}}" tooltipPosition="{{toolTipPosition}}" tooltipEvent="hover" *ngFor="let item of menuItems" class="" (click)="buttonClicked(item)"
-    [ngClass]="
-    { 'toolbar-button': item.label !== 'separator', 'toolbar-button-horizontal': item.label !== 'separator' && orientation === 'horizontal', 'toolbar-button-vertical': item.label !== 'separator' && orientation === 'vertical',
-    'toolbar-separator-horizontal': item.label === 'separator' && orientation === 'horizontal', 'toolbar-separator-vertical': item.label === 'separator' && orientation === 'vertical' }" >
-        <span  *ngIf="item.icon">
-            <fa-icon style="font-size: 20px" [icon]="item.icon"></fa-icon>
-            
-        </span>
-        <span *ngIf="item.label !== 'separator' && !item.icon">    
-            {{item.label}}
+<div ngDraggable class="toolbar" [ngClass]="{ 'toolbar-horizontal': orientation === 'horizontal'}">
+    <div pTooltip="Navigation Toolbar" tooltipPosition="left" style="color: rgb(120,120,120); cursor: move;" *ngIf="orientation === 'horizontal'" class="toolbar-button-horizontal">
+        <span>
+            <fa-icon style="font-size: 20px" [icon]="faGripVertical"></fa-icon>
         </span>
     </div>
+    <div *ngIf="orientation === 'vertical'" (click)="toggleBar()" class="toolbar-button" class="toolbar-button toolbar-button-vertical handle-vertical">
+        <span>
+            <fa-icon style="font-size: 20px" *ngIf="!collapsed" [icon]="faCaretUp"></fa-icon>
+            <fa-icon *ngIf="collapsed" [icon]="faCaretDown"></fa-icon>
+        </span>
+    </div>
+    <div [@slideInTop] *ngIf="!collapsed && orientation == 'vertical'">
+        <div pTooltip="{{item.label}}" tooltipPosition="{{toolTipPosition}}" tooltipEvent="hover" *ngFor="let item of menuItems" class="" (click)="buttonClicked(item)"
+        [ngClass]="
+        { 'toolbar-button': item.label !== 'separator', 'toolbar-button-horizontal': item.label !== 'separator' && orientation === 'horizontal', 'toolbar-button-vertical': item.label !== 'separator' && orientation === 'vertical',
+        'toolbar-separator-horizontal': item.label === 'separator' && orientation === 'horizontal', 'toolbar-separator-vertical': item.label === 'separator' && orientation === 'vertical' }" >
+            <span  *ngIf="item.icon">
+                <fa-icon style="font-size: 20px" [icon]="item.icon"></fa-icon>
+                
+            </span>
+            <span *ngIf="item.label !== 'separator' && !item.icon">    
+                {{item.label}}
+            </span>
+        </div>
+    </div>
+
+    <div [@slideInSide] class="menu-buttons" *ngIf="!collapsed && orientation == 'horizontal'">
+        <div pTooltip="{{item.label}}" tooltipPosition="{{toolTipPosition}}" tooltipEvent="hover" *ngFor="let item of menuItems" class="" (click)="buttonClicked(item)"
+        [ngClass]="
+        { 'toolbar-button': item.label !== 'separator', 'toolbar-button-horizontal': item.label !== 'separator' && orientation === 'horizontal', 'toolbar-button-vertical': item.label !== 'separator' && orientation === 'vertical',
+        'toolbar-separator-horizontal': item.label === 'separator' && orientation === 'horizontal', 'toolbar-separator-vertical': item.label === 'separator' && orientation === 'vertical' }" >
+            <span  *ngIf="item.icon">
+                <fa-icon style="font-size: 20px" [icon]="item.icon"></fa-icon>
+                
+            </span>
+            <span *ngIf="item.label !== 'separator' && !item.icon">    
+                {{item.label}}
+            </span>
+        </div>
+    </div>
+    
+    <div  *ngIf="orientation === 'horizontal'" (click)="toggleBar()" class="toolbar-button toolbar-button-horizontal handle-horizontal">
+        <span>
+            <fa-icon *ngIf="collapsed" [icon]="faCaretLeft"></fa-icon>
+            <fa-icon *ngIf="!collapsed" [icon]="faCaretRight"></fa-icon>
+        </span>
+    </div>
+    <div pTooltip="Creation Toolbar" tooltipPosition="left" style="color: rgb(120,120,120); cursor: move;" *ngIf="orientation === 'vertical'" class="toolbar-button-vertical">
+        <span>
+            <fa-icon style="font-size: 20px" [icon]="faGripHorizontal"></fa-icon>
+        </span>
+    </div>
+
 </div>

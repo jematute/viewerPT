@@ -7,8 +7,8 @@
             <fa-icon *ngIf="leftPanelOpened" [icon]="faCaretLeft"></fa-icon>
             <fa-icon *ngIf="!leftPanelOpened" [icon]="faCaretRight"></fa-icon>
         </div>
-        <div [@slideInTop] [@.disabled]="disableAnimate" *ngIf="topPanelOpened && viewer.openedDocuments.length > 0" [ngStyle]="{ height: topPanelHeight }">
-            <app-top-panel></app-top-panel>
+        <div mwlResizable [enableGhostResize]="false" [resizeCursorPrecision]="10" (resizeEnd)="onResizeEnd($event)" (resizing)="onResizing($event)" [resizeEdges]="{bottom: true, right: false, top: false, left: false}" [@slideInTop] [@.disabled]="disableAnimate" *ngIf="topPanelOpened && viewer.openedDocuments.length > 0" [ngStyle]="{ height: topPanelHeight }">
+            <app-top-panel class="left-sidebar"></app-top-panel>
         </div>
     
         <div class="main-content">
@@ -17,7 +17,7 @@
                 <fa-icon *ngIf="!topPanelOpened" [icon]="faCaretUp"></fa-icon>
             </div>
             <router-outlet></router-outlet>
-            <div *ngIf="bottomPanelOpened && viewer.markupMode" class="bottom-toggle" (click)="toggleBottomPane()">
+            <div *ngIf="viewer.markupMode" class="bottom-toggle" (click)="toggleBottomPane()">
                 <fa-icon *ngIf="!bottomPanelOpened" [icon]="faCaretDown"></fa-icon>
                 <fa-icon *ngIf="bottomPanelOpened" [icon]="faCaretUp"></fa-icon>
             </div>

@@ -13,12 +13,15 @@ import { MarkupPaneComponent } from './markup-pane/markup-pane.component';
 import { AgGridModule } from 'ag-grid-angular';
 import {TooltipModule} from 'primeng/tooltip';
 import { MarkupToolbarComponent } from './markup-toolbar/markup-toolbar.component';
+import { PrintPanelComponent } from './print-panel/print-panel.component';
+import { MaterialModule } from '../material-module';
 
 @NgModule({
-  declarations: [PanelMenuComponent, PanelButtonComponent, ThumbnailBarComponent, FloatingToolbarComponent, MarkupPaneComponent, MarkupToolbarComponent],
+  declarations: [PanelMenuComponent, PanelButtonComponent, ThumbnailBarComponent, FloatingToolbarComponent, MarkupPaneComponent, MarkupToolbarComponent, PrintPanelComponent],
   imports: [
-    TooltipModule, CommonModule, FontAwesomeModule, SliderModule, FormsModule, BrowserAnimationsModule, AngularDraggableModule, AgGridModule.withComponents([])
+    TooltipModule, MaterialModule, CommonModule, FontAwesomeModule, SliderModule, FormsModule, BrowserAnimationsModule, AngularDraggableModule, AgGridModule.withComponents([])
   ],
+  entryComponents: [ PrintPanelComponent ],
   exports: [PanelMenuComponent, ThumbnailBarComponent, FloatingToolbarComponent, MarkupPaneComponent, MarkupToolbarComponent]
 })
 export class SharedComponentsModule { }

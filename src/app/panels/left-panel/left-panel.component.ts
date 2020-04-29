@@ -57,6 +57,8 @@ export class LeftPanelComponent implements OnInit {
   settingItems = [];
   faCaretLeft = faCaretLeft;
   opened = true;
+
+  synergisLogo = "assets/images/synergislogo.png";
   
   toggle() {
     this.opened = !this.opened;
@@ -110,10 +112,11 @@ export class LeftPanelComponent implements OnInit {
       },
       {
         label: 'Print',
+        type: 34,
         icon: 'pi pi-fw pi-print',
         items: [
-          { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-          { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
+          { label: 'Print 1', icon: 'pi pi-fw pi-trash' },
+          { label: 'Print 2', icon: 'pi pi-fw pi-refresh' }
         ]
       },
       {
@@ -122,23 +125,23 @@ export class LeftPanelComponent implements OnInit {
         type: 54,
         items: [
           {
-            label: 'Contents',
+            label: 'Markup 1',
             icon: 'pi pi-pi pi-bars'
           },
           {
-            label: 'Search',
+            label: 'Markup 2',
             icon: 'pi pi-pi pi-search',
             items: [
               {
-                label: 'Text',
+                label: 'Markup 2.1',
                 items: [
                   {
-                    label: 'Workspace'
+                    label: 'Markup 2.1.1'
                   }
                 ]
               },
               {
-                label: 'User',
+                label: 'Markup 2.2',
                 icon: 'pi pi-fw pi-file',
               }
             ]
@@ -150,18 +153,18 @@ export class LeftPanelComponent implements OnInit {
         icon: 'pi pi-fw pi-sitemap',
         items: [
           {
-            label: 'Edit',
+            label: 'Workflow 1',
             icon: 'pi pi-fw pi-sitemap',
             items: [
-              { label: 'Save', icon: 'pi pi-fw pi-save' },
-              { label: 'Update', icon: 'pi pi-fw pi-save' },
+              { label: 'Workflow 1.1', icon: 'pi pi-fw pi-save' },
+              { label: 'Workflow 1.2', icon: 'pi pi-fw pi-save' },
             ]
           },
           {
-            label: 'Other',
+            label: 'Workflow 2',
             icon: 'pi pi-fw pi-tags',
             items: [
-              { label: 'Delete', icon: 'pi pi-fw pi-minus' }
+              { label: 'Workflow 2.1', icon: 'pi pi-fw pi-minus' }
             ]
           }
         ]
@@ -171,15 +174,15 @@ export class LeftPanelComponent implements OnInit {
         icon: 'pi pi-fw pi-users',
         items: [
           {
-            label: 'Edit',
+            label: 'Collaboration 1',
             icon: 'pi pi-fw pi-pencil',
             items: [
-              { label: 'Save', icon: 'pi pi-fw pi-save' },
-              { label: 'Update', icon: 'pi pi-fw pi-save' },
+              { label: 'Collaboration 1.1', icon: 'pi pi-fw pi-save' },
+              { label: 'Collaboration 1.2', icon: 'pi pi-fw pi-save' },
             ]
           },
           {
-            label: 'Other',
+            label: 'Collaboration 2',
             icon: 'pi pi-fw pi-tags',
             items: [
               { label: 'Delete', icon: 'pi pi-fw pi-minus' }
@@ -190,16 +193,21 @@ export class LeftPanelComponent implements OnInit {
     ];
   }
 
-  
-
   @Input()
   paneOpened = true;
 
   buttonClicked(item) {
-    if (item.type == 1)
-      this.viewer.openDocument(item);
-    if (item.type === 54) {
-      this.viewer.markupMode = !this.viewer.markupMode;
+    switch (item.type) {
+      case 1:
+        this.viewer.openDocument(item);
+        break;
+    
+      case 54:
+        this.viewer.toggleMarkupMode();
+        break;
+      case 34:
+        this.viewer.print();
+        break;
     }
   }
 
